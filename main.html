@@ -1,0 +1,81 @@
+<script>
+
+
+game();
+
+function game(){
+    let playerSelection = prompt("Please choose between the three options: Rock, Paper, Scissors");
+    let counter = 0;
+
+    let playerCount = 0;
+    let computerCount = 0;
+
+    while (counter < 5) {
+    let computerSelection = computerPlay();
+    console.log("The Player chose: " + playerSelection)
+    console.log("The computer chose: " + computerSelection)
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("---------------------");
+    
+    
+
+    if (playRound(playerSelection, computerSelection) == "Player won!") {
+        playerCount++;
+    }
+    else if(playRound(playerSelection, computerSelection) == "Computer won!") {
+        computerCount++;
+    }
+    else if(playRound(playerSelection, computerSelection) == "tied!") {
+        playerCount++;
+        computerCount++;
+    }
+    counter++;
+    }
+    console.log("-------------------------------------------------------------");
+    console.log("The player got: " + playerCount + " points!");
+    console.log("The computer got: " + computerCount + " points!");
+    if (playerCount>computerCount) {
+        console.log("The player won the Game!!!!")
+    }
+    else if(computerCount>playerCount){
+        console.log("The computer won the Game!!!!")
+    }
+    else if(computerCount == playerCount){
+        console.log("Game tied!!!!")
+    }
+}
+
+
+
+
+function computerPlay(){
+    let computerChoose = ["Rock", "Paper", "Scissors"];
+    let getAction = computerChoose[Math.floor(Math.random() * computerChoose.length)];
+    return getAction;
+}
+function playRound(playerSelection, computerSelection){
+    // Player wins
+    if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        return "Player won!";
+    }
+    else if (playerSelection == "Paper" && computerSelection == "Rock") {
+        return "Player won!";
+    }
+    else if (playerSelection == "Scissors" && computerSelection == "Paper"){
+        return "Player won!";
+    }
+    //Ties
+    else if (playerSelection == "Paper" && computerSelection == "Paper" || playerSelection == "Rock" && computerSelection == "Rock" 
+                                                                        || playerSelection == "Scissors" && computerSelection == "Scissors"){
+        return "tied!";
+    }
+    //Computer wins
+    else {
+        return "Computer won!";
+    }
+    
+    
+}
+
+
+</script>
