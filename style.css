@@ -1,0 +1,6 @@
+.button{
+    font-size: 50px;
+    display: table;
+    cursor: pointer;
+    float: left;
+}
